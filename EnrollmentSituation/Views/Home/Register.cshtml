@@ -1,0 +1,49 @@
+﻿@model EnrollmentSituation.Models.Student
+
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm("Register", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <h2>Register</h2>
+
+    <p>
+        @Html.LabelFor(m => m.StudIDNumber, "Student ID Number")
+        @Html.TextBoxFor(m => m.StudIDNumber)
+        @Html.ValidationMessageFor(m => m.StudIDNumber)
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.StudLName)
+        @Html.TextBoxFor(m => m.StudLName)
+        @Html.ValidationMessageFor(m => m.StudLName)
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.StudFName)
+        @Html.TextBoxFor(m => m.StudFName)
+        @Html.ValidationMessageFor(m => m.StudFName)
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.StudDob)
+        @Html.TextBoxFor(m => m.StudDob, new { type = "date" })
+        @Html.ValidationMessageFor(m => m.StudDob)
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.StudEmail)
+        @Html.TextBoxFor(m => m.StudEmail)
+        @Html.ValidationMessageFor(m => m.StudEmail)
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.ProgId, "Program")
+        @Html.DropDownListFor(m => m.ProgId, (SelectList)ViewBag.Programs, "-- Select Program --")
+        @Html.ValidationMessageFor(m => m.ProgId)
+    </p>
+
+    <p><button type="submit">Register</button></p>
+}

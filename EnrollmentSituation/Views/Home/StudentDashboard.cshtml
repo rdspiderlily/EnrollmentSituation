@@ -1,0 +1,26 @@
+﻿@model EnrollmentSituation.Models.Student
+
+@{
+    ViewBag.Title = "Student Dashboard";
+}
+
+<h2>Welcome, @Model.StudFName @Model.StudLName!</h2>
+
+<table>
+    <tr>
+        <td><strong>ID Number:</strong></td>
+        <td>@Model.StudIDNumber</td>
+    </tr>
+    <tr>
+        <td><strong>Birthdate:</strong></td>
+        <td>@Model.StudDob.ToString("yyyy-MM-dd")</td>
+    </tr>
+    <tr>
+        <td><strong>Email:</strong></td>
+        <td>@Model.StudEmail</td>
+    </tr>
+    <tr>
+        <td><strong>Program:</strong></td>
+        <td>@(Model.Program?.ProgName ?? "No Program Assigned")</td>
+    </tr>
+</table>

@@ -1,0 +1,18 @@
+﻿@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <h2>Login</h2>
+    <p>ID Number: @Html.TextBox("StudIDNumber")</p>
+    <p>Birthday: @Html.TextBox("studDob", "", new { type = "date" })</p>
+    <p><button type="submit">Login</button></p>
+
+    if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <p style="color:red">@ViewBag.Message</p>
+    }
+
+    if (TempData["Success"] != null)
+    {
+        <p style="color:green">@TempData["Success"]</p>
+    }
+}
